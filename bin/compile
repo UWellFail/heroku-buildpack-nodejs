@@ -2,10 +2,7 @@
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
 ### Configure environment
-wget ftp://ftp.openssl.org/source/openssl-1.0.0t.tar.gz
-tar -zxf openssl-1.0.0t.tar.gz
-cd openssl-1.0.0t/ && ./config --prefix=/usr/local --openssldir=/usr/local/ssl && make && make install && ./config shared --prefix=/usr/local --openssldir=/usr/local/ssl && make clean && make && make install
-
+openssl version
 set -o errexit    # always exit on error
 set -o pipefail   # don't ignore exit codes when piping output
 unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
