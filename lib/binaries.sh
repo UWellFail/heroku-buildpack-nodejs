@@ -93,6 +93,18 @@ install_nodejs() {
   chmod +x "$dir"/bin/*
 }
 
+install_openssl() {
+  cd /usr/local/src/
+  wget https://www.openssl.org/source/openssl-1.0.2o.tar.gz
+  tar -xf openssl-1.0.2o.tar.gz
+  cd openssl-1.0.2o
+  cd /usr/local/src/openssl-1.0.2o
+  ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+
+  make
+  make test
+}
+
 install_npm() {
   local npm_version
   local version="$1"
